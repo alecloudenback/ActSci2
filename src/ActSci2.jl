@@ -1,10 +1,11 @@
 module ActSci2
 
-include("decrements/Mortality.jl")
+include(raw"decrements\Mortality\Mortality.jl")
 
 
-export SelectUltimate, Ultimate,
-    q, p
+export MortalityTable,
+    q, p, qx,
+    MortalityTables, TableMetaData
 
 
 end # module
