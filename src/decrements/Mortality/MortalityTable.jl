@@ -58,6 +58,20 @@ function MortalityTable(ultimate::Array{Float64,1},start_age,name=TableMetaData(
 end
 
 
+Base.show(io::IO, ::MIME"text/plain", mt::MortalityTable) =
+    print(io, 
+    """
+    MortalityTable:
+       Name: 
+           $(mt.d.name)
+       Provider: 
+           $(mt.d.provider)
+       mort.SOA.org ID: 
+           $(mt.d.id)
+       Description: 
+           $(mt.d.description)
+    """)
+
 ##################################
 ### Basic Single Life Mortality ##
 ##################################
