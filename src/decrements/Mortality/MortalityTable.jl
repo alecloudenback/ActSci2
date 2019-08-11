@@ -72,6 +72,19 @@ Base.show(io::IO, ::MIME"text/plain", mt::MortalityTable) =
            $(mt.d.description)
     """)
 
+"""
+Return a vector/array of mortality rates. Two arguments returns select rates,
+while one argument returns ultimate rates.
+"""
+function Base.getindex(mt::MortalityTable,ages,durs)
+    return mt.select[ages,durs]
+end
+
+function Base.getindex(mt::MortalityTable,ages)
+    return mt.ultimate[ages]
+end
+
+
 ##################################
 ### Basic Single Life Mortality ##
 ##################################

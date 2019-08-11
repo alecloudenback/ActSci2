@@ -1,6 +1,4 @@
-using Parameters
-
-@with_kw struct TableMetaData 
+Base.@kwdef struct TableMetaData 
     name::Union{Nothing,String} = nothing
     id::Union{Nothing,String} = nothing
     provider::Union{Nothing,String} = nothing

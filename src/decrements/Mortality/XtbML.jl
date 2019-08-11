@@ -146,10 +146,3 @@ function MortalityTables()
     end
     return tables
 end
-
-using Parameters
-@with_kw struct test
-    a
-    b
-end
-
