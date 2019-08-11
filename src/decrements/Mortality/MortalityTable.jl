@@ -7,6 +7,9 @@ include("MetaData.jl")
 `MortalityMatrix` is a 2-dimensional array with duration across the columns
 and issue age down the rows. Issue age must begin at age 0 and duration must
 begin at 1. The index of the table is [`issue_age`,`duration`].
+
+For a select table, duration will run across the row until the end of the rates (this is different than
+how tables are typcially displayed given limited width constraints).
 """
 const MortalityMatrix= Union{OffsetArray{Union{Missing, Float64},2,Array{Union{Missing, Float64},2}},
                                 OffsetArray{Float64,2,Array{Float64,2}}}
@@ -53,6 +56,11 @@ function MortalityTable(ultimate::Array{Float64,1},start_age,name=TableMetaData(
     normalized_vector(ultimate,start_age),
     name)
 end
+
+
+##################################
+### Basic Single Life Mortality ##
+##################################
 
 """
 ₜp₍ₓ₎₊ₛ , or the probability that a life aged `x + s` who was select
