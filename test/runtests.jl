@@ -100,3 +100,5 @@ end
     @test cso2001[29,1:3] == [0.00029, 0.00035, 0.0004]
 
 end
+
+include("interest.jl")
