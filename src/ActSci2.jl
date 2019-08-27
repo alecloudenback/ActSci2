@@ -1,6 +1,6 @@
 module ActSci2
 
-include(raw"decrements\Mortality\Mortality.jl")
+include("decrements\\Mortality\\Mortality.jl")
 
 
 export MortalityTable,
