@@ -142,5 +142,5 @@ function qx(table::MortalityTable,age)
 end
 
 function qx(table::MortalityTable,age,duration)
-    q(table,age,duration-1,1 )
+    table.select[age,duration]
 end
