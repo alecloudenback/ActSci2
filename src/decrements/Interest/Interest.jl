@@ -1,11 +1,11 @@
 abstract type InterestRate end
 
 struct ConstantInterest <: InterestRate
-    i::Real
+    i::Float64
 end
 
 struct VectorInterest <: InterestRate
-    i::Array{<:Real,1}
+    i::Array{Float64,1}
 end
 
 struct FunctionalInterest <: InterestRate
@@ -13,21 +13,21 @@ struct FunctionalInterest <: InterestRate
 end
 
 mutable struct MutableInterest <: InterestRate
-    iv::Array{<:Real,1}
+    iv::Array{Float64,1}
     f
 end
 
 """
 Construct an interest rate that is constant in all periods
 """
-function InterestRate(i::Real)
+function InterestRate(i::Float64)
     return ConstantInterest(i)
 end
 
 """
 Construct an interest rate that is constant in all periods
 """
-function InterestRate(i::Array{<:Real,1})
+function InterestRate(i::Array{Float64,1})
     return VectorInterest(i)
 end
 
@@ -49,7 +49,7 @@ Construct an interest rate that is has the function signature
     and `i` is the interest rate in that period.
     This function can refer to prior periods by self reference and a negative period as `n`
 """
-function InterestRate(f,i::Real)
+function InterestRate(f,i::Float64)
     return MutableInterest([i],f)
 end
 
